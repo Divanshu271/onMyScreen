@@ -12,7 +12,9 @@ const development = {
   database: DB_NAME,
   host: DB_HOST,
   port: Number(DB_PORT),
+  ssl: true,
   define: {
+    
     paranoid: true,
   },
 };
