@@ -7,7 +7,8 @@ const db = require("./database/models");
 
 configs(app);
 
-db.sequelize.sync({ alter: true }).then((req, res) => {
+db.sequelize.sync({ alter: true }).then((req, res , next) => {
+  next()
   app.listen(8080, function (res) {
     console.log(`Server running on port http://localhost:8080`);
   });
