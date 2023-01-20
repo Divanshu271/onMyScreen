@@ -1,17 +1,24 @@
 {
-  "name": "express-hello-world",
+  "name": "blogwebsite",
   "version": "1.0.0",
-  "description": "Express Hello World on Render",
-  "main": "app.js",
-  "repository": "https://github.com/render-examples/express-hello-world",
-  "author": "Render Developers",
-  "license": "MIT",
-  "private": false,
+  "description": "OK",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app",
+    "dev": "nodemon app.js"
   },
+  "author": "Divanshu",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   },
   "engines": {
     "node": ">=14"
