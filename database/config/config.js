@@ -1,24 +1,21 @@
-const dotenv = require('dotenv/config');
+require("dotenv/config")
 
 const {
-  DB_HOST, DB_PORT = 5432, DB_NAME, DB_USER, DB_PASSWORD,
+  DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS, DIALECT, TIMEZONE, SSL, LOGGING, DB_URI
 } = process.env;
 
 const development = {
-  dialect: 'postgres',
-  timezone: '+05:30',
+  dialect: DIALECT,
+  timezone: TIMEZONE,
   username: DB_USER,
-  password: DB_PASSWORD,
+  password: DB_PASS,
   database: DB_NAME,
   host: DB_HOST,
   port: Number(DB_PORT),
-  ssl: true,
-  define: {
-    
-    paranoid: true,
-  },
+  ssl: SSL,
+  // logging: LOGGING,
+  db_uri: DB_URI
 };
-
 
 module.exports = {development}
 

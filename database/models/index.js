@@ -6,13 +6,22 @@ const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.js');
+const config = require(path.join(__dirname,'../config/config.js'))[env];
 const db = {};
 
-console.log(config['development']);
-// let sequelize;
-const sequelize = new Sequelize(config['development']);
 
+let sequelize;
+// cloud database from online server
+let db_uri = process.env.DB_URI
+
+// using cloud database locally
+if(config.db_uri){
+sequelize = new Sequelize(config.db_uri)
+// if(db_uri){
+// sequelize = new Sequelize(db_uri)
+}else{
+sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 fs
   .readdirSync(__dirname)
