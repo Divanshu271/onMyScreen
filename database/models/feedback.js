@@ -1,11 +1,11 @@
 const { DataTypes } = require("sequelize");
-
+var Sequelize = require("sequelize");
 module.exports=(sequelize, DataTypes)=>{
     const feedback= sequelize.define("feedback",{
         id:{
-            type:DataTypes.INTEGER,
+            type:Sequelize.DataTypes.INTEGER,
             primaryKey:true,
-            auto_Increment:true
+            autoIncrement:true
         }, 
         firstName:{
             type:DataTypes.STRING

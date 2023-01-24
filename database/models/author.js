@@ -3,7 +3,7 @@ const blog = require("./blogs");
 // const blogs=require('./blog');
 module.exports=(sequelize, DataTypes)=>{
     const author= sequelize.define("author",{
-        AuhtorId:{
+        AuthorId:{
             type:DataTypes.INTEGER,
             primaryKey:true,
             auto_Increment:true

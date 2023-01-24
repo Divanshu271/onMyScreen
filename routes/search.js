@@ -1,9 +1,9 @@
 const express=require('express');
 
-const blogController = require('../controllers/blogs');
+const searchController = require('../controllers/search');
 
 const routes= express();
 
-routes.get('/', blogController.get)
+routes.get('/', searchController.search)
 // routes.get('/'||'/home', testController.get)
 module.exports =routes;

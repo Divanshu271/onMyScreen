@@ -1,18 +1,15 @@
 const blogsRouter = require('../../routes/blogs')
-const subscriberRouter = require('../../routes/subscriber')
 const feedbackRouter = require('../../routes/feedback')
-const express=require("express")
+const searchRouter = require('../../routes/search')
 // const app = express();
 
 module.exports = function(app){
 
   console.log("TEST1");
   app.use('/blogs', blogsRouter);
-  app.use('/subscriber', subscriberRouter);
-  app.use('/feedback', feedbackRouter);
-//   app.use('/otp', otpRouter )
+  app.use('/blogs/feedback', feedbackRouter);
+  app.use('/blogs/search', searchRouter);
 //   app.use('/services',serviceRouter)
 //   app.use('/interest',interestRouter)
 //   app.use('/group', groupRouter);
-
 }

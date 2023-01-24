@@ -1,7 +1,7 @@
-const express=require('express');
-const feedbackController = require('../controllers/feedback');
-const routes= express.Router();
+const express = require("express");
+const feedbackController = require("../controllers/feedback");
+const routes = express.Router();
 
-routes.post('/', feedbackController.postfeedback)
+routes.post("/", feedbackController.postfeedback);
 
-module.exports =routes;
+module.exports = routes;

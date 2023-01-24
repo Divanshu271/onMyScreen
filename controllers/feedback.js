@@ -5,7 +5,9 @@ module.exports = {
     // change name to createSubscriber
   postfeedback: async (req, res) => {
     // if else ?
-    const { firstName, lastName, email, reviews } = req.query;
+    console.log(req.body);
+    const { firstName, lastName, email, reviews } = req.body;
+    
     try {
       const response = await db.feedback.create({
         firstName,

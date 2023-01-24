@@ -1,6 +1,5 @@
 
 const db = require("../database/models");
-const blogs = require("../database/models/blogs");
 // let perPage=req.body.perPage;
 // let pageNo=req.body.pageNo;
 // perPage=parseInt(perPage);
@@ -15,12 +14,10 @@ module.exports = {
       let pageNo = req.query.pageNo;
       perPage = parseInt(perPage);
       pageNo = parseInt(pageNo);
-  
-  
       let offset = perPage*(pageNo-1)
       const bg = await db.blogs.findAll();
       console.log(bg);
-      if (bg != null) {
+      if (bg.length) {
         res.status(200).send(bg);
         console.log("success");
       } else {

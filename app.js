@@ -1,11 +1,12 @@
 const express = require("express");
 require("dotenv").config();
 const app = express();
-// const configs = require("./database/config/routes");
+const configs = require("./database/config/routes");
 
 const db = require("./database/models");
 PORT=process.env.PORT || 8080
-// configs(app);
+app.use(express.json())
+configs(app);
 app.listen(PORT, async () => {
   try {
       await db.sequelize.authenticate();
