@@ -10,21 +10,24 @@ module.exports = {
   get: async(req, res) => {
 
     try {
-      let perPage = req.query.perPage;
-      let pageNo = req.query.pageNo;
-      perPage = parseInt(perPage);
-      pageNo = parseInt(pageNo);
-      let offset = perPage*(pageNo-1)
-      const bg = await db.blogs.findAll();
-      console.log(bg);
-      if (bg.length) {
-        res.status(200).send(bg);
-        console.log("success");
-      } else {
-        res.status(200).send("no blogs there");
-        console.log("failure");
+      if (req.query!=""){
+        let perPage = req.query.perPage || 10;
+        let pageNo = req.query.pageNo || 1;
+        perPage = parseInt(perPage);
+        pageNo = parseInt(pageNo);
+          let offset = (perPage* (pageNo-1))
+          const bg = await db.blogs.findAll({
+          offset:offset,
+          limit:perPage
+        });
+
+        if(bg){
+          res.send(bg)
+        }
+        
+      }else{
+          res.status(400).send('No Query Received')
       }
-    
     } catch (error) {
       console.log(error);
     }
