@@ -32,6 +32,10 @@ module.exports=(sequelize, DataTypes)=>{
             type:DataTypes.TEXT,
             allowNull:false
         },
+        fact:{
+            type:DataTypes.TEXT,
+            allowNull:false
+        },
         fullDescription1:{
             type:DataTypes.TEXT,
             allowNull:false
