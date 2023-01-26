@@ -4,11 +4,11 @@ const blogs = require("../database/models/blogs");
 module.exports = {
   search: async (req, res) => {
     try {
-       let { q } = req.query;
-    console.log(req.query.search);
-    if ({ q } != "") {
+       let q = req.query.q;
+    console.log(q);
+    if (q != "") {
       let bgs = await db.blogs.findAll({
-        where: { title: { [Sequelize.Op.iLike]: "%"+req.query.search } },
+        where: { title: { [Sequelize.Op.iLike]: `%${q}%` } },
       });
       console.log(bgs)
       if (bgs !=[]) {
