@@ -24,6 +24,10 @@ module.exports=(sequelize, DataTypes)=>{
         detailedDescription:{
             type:DataTypes.TEXT,
             allowNull:false
+        },
+        detailedDescription1:{
+            type:DataTypes.TEXT,
+            allowNull:false
         }
     });
     // const associate = function associate(models){

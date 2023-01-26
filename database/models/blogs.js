@@ -31,6 +31,18 @@ module.exports=(sequelize, DataTypes)=>{
         fullDescription:{
             type:DataTypes.TEXT,
             allowNull:false
+        },
+        fullDescription1:{
+            type:DataTypes.TEXT,
+            allowNull:false
+        },
+        fullDescription2:{
+            type:DataTypes.TEXT,
+            allowNull:false
+        },
+        tags:{
+            type:DataTypes.STRING,
+            allowNull:false
         }
     });
     // blogs.hasOne(AuthorId);

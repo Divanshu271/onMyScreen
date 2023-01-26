@@ -1,5 +1,6 @@
 
 const db = require("../database/models");
+const { response } = require("../routes/search");
 // let perPage=req.body.perPage;
 // let pageNo=req.body.pageNo;
 // perPage=parseInt(perPage);
@@ -21,8 +22,21 @@ module.exports = {
           limit:perPage
         });
 
+        let totalBlogs = await db.blogs.findAll()
+        totalBlogs = totalBlogs.length
+
+        let totalPages = []
+
+        for (let i = 1; i <= Math.ceil(totalBlogs / perPage); i++) {
+          totalPages.push(i);
+        }
+
         if(bg){
-          res.send(bg)
+          let response = {
+            blogs: bg,
+            totalPages: totalPages
+          }
+          res.send(response)
         }
         
       }else{
