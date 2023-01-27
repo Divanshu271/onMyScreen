@@ -21,6 +21,10 @@ module.exports=(sequelize, DataTypes)=>{
             type:DataTypes.TEXT,
             allowNull:false
         },
+        sideBarDescription:{
+            type:DataTypes.TEXT,
+            allowNull:false
+        },
         detailedDescription:{
             type:DataTypes.TEXT,
             allowNull:false

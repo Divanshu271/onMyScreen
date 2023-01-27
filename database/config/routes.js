@@ -14,7 +14,7 @@ module.exports = function(app){
   app.use('/blogs/search', searchRouter);
   app.use('/blogs/getOne', getOneRouter);
   app.use('/blogs/about', getAuthorRouter);
-  app.use('/blogs/about/tags', tagsRouter);
+  app.use('/blogs/tags', tagsRouter);
   
 //   app.use('/services',serviceRouter)
 //   app.use('/interest',interestRouter)
