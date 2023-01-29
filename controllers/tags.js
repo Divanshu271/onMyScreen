@@ -9,10 +9,7 @@ module.exports = {
       console.log(tag);
       if (tag != "") {
         let T = await db.blogs.findAll({
-          where: {
-            [Sequelize.Op.or]: 
-              { title: { [Sequelize.Op.iLike]: `%${tag}%` }, tags: { [Sequelize.Op.iLike]: `%${tag}%` } },
-          },
+          where: {tags: { [Sequelize.Op.iLike]: `%${tag}%`}}
         });
         console.log(T);
         if (T != []) {
