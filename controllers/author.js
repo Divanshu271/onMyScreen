@@ -7,7 +7,7 @@ module.exports = {
     try {
         let about = req.query;
       if (about){
-          const getAuth = await db.author.findOne();
+          const getAuth = await db.author.findAll();
 
         if(getAuth){
           return res.status(400).send(getAuth)
