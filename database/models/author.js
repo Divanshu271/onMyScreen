@@ -34,10 +34,8 @@ module.exports=(sequelize, DataTypes)=>{
             allowNull:false
         }
     });
-    // const associate = function associate(models){
-    //     author.hasMany(models.blog);
-    //     
-    // }
-    // associate();
+    author.associate = function (models) {
+        models.author.hasMany(models.blogs, { foreignKey: "AuthorId" });
+      };
     return author;
 }

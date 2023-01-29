@@ -9,6 +9,9 @@ module.exports = {
       if (id!=""){
           const bg1 = await db.blogs.findOne({
             where: { id },
+            include:[{
+              model:db.author
+            }]
         });
 
         if(bg1){

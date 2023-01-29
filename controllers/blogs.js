@@ -1,6 +1,7 @@
 
 const db = require("../database/models");
 const { response } = require("../routes/search");
+const author = require("./author");
 // let perPage=req.body.perPage;
 // let pageNo=req.body.pageNo;
 // perPage=parseInt(perPage);
@@ -19,7 +20,10 @@ module.exports = {
           let offset = (perPage* (pageNo-1))
           const bg = await db.blogs.findAll({
           offset:offset,
-          limit:perPage
+          limit:perPage,
+          include: [{
+            model: db.author
+          }]
         });
 
         let totalBlogs = await db.blogs.findAll()
