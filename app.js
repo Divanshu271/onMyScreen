@@ -3,6 +3,7 @@ const express = require("express");
 require("dotenv").config();
 const app = express();
 const configs = require("./database/config/routes");
+const nodeMailer=require('nodemailer');
 
 const db = require("./database/models");
 PORT=process.env.PORT || 8080
