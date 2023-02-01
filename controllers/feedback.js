@@ -48,10 +48,10 @@ module.exports = {
           <p>Hello Sir/Ma'am</p>
           <p>Thanks for sending precious feedback for my reference i'll surely consider this and will tryna' improve my website you can check your details given below:</p>
           <ul>
-          <li>${req.body.firstName}</li>
-          <li>${req.body.lastName}</li>
-          <li>${req.body.email}</li>
-          <li>${req.body.reviews}</li>
+          <li>firstName : ${req.body.firstName}</li>
+          <li>lastName : ${req.body.lastName}</li>
+          <li>Email : ${req.body.email}</li>
+          <li>Your Review : ${req.body.reviews}</li>
           </ul>
           <p>Ok so you can add another review if you want to too </p>
           <p>Thanks for visiting my website</p>
