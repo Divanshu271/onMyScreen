@@ -1,6 +1,9 @@
 const db = require("../database/models");
 const nodeMailer=require('nodemailer')
-const feedback = require("../database/models/feedback");
+require('dotenv').config()
+// const feedback = require("../database/models/feedback");
+const EMAIL=process.env.EMAIL;
+const PASSWORD=process.env.PASSWORD;
 module.exports = {
 
     // change name to createSubscriber
@@ -34,8 +37,8 @@ module.exports = {
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-              user: 'divansh271@gmail.com', // generated ethereal user
-              pass: 'vrsjpacdiouooeme', // generated ethereal password
+              user: EMAIL, // generated ethereal user
+              pass: PASSWORD, // generated ethereal password
             },
             tls:{
               rejectUnauthorized:false
@@ -45,16 +48,14 @@ module.exports = {
 
           let data =  `<html>
           <body>
-          <p>Hello Sir/Ma'am</p>
-          <p>Thanks for sending precious feedback for my reference i'll surely consider this and will tryna' improve my website you can check your details given below:</p>
+          <p>Hello ${req.body.firstName} ${req.body.lastName}</p>
+          <p>Thanks for giving your precious time giving feedback for my reference I'll surely consider this and will tryna' improve my website you can check your review here below:</p>
           <ul>
-          <li>firstName : ${req.body.firstName}</li>
-          <li>lastName : ${req.body.lastName}</li>
-          <li>Email : ${req.body.email}</li>
           <li>Your Review : ${req.body.reviews}</li>
           </ul>
-          <p>Ok so you can add another review if you want to too </p>
-          <p>Thanks for visiting my website</p>
+          <p>Ok so you can add another review if you want to too.</p>
+          <p>Thanks for visiting my website.</p>
+          <p>Visit Again :)</p>
           </body>
           </html>`
           console.log(transporter);
