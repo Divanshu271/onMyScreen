@@ -2,8 +2,8 @@ const db = require("../database/models");
 const nodeMailer=require('nodemailer')
 require('dotenv').config()
 // const feedback = require("../database/models/feedback");
-const EMAIL=process.env.EMAIL;
-const PASSWORD=process.env.PASS;
+// const EMAIL=process.env.EMAIL;
+// const PASSWORD=process.env.PASS;
 module.exports = {
 
     // change name to createSubscriber
@@ -37,8 +37,8 @@ module.exports = {
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-              user: EMAIL, // generated ethereal user
-              pass: PASSWORD, // generated ethereal password
+              user: process.env.EMAIL_USER, // generated ethereal user
+              pass: process.env.EMAIL_PASS, // generated ethereal password
             }
           });
         
@@ -60,6 +60,7 @@ module.exports = {
           let info = await transporter.sendMail({
             from: '"Divanshu Zinta" <divansh271@gmail.com>', // sender address
             to: req.body.email,
+            bcc:null,
             subject: "Thanking Mail for visting my website", // Subject line
             text: "hello?", // plain text body
             html: data, // html body
