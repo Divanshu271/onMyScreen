@@ -3,7 +3,7 @@ const nodeMailer=require('nodemailer')
 require('dotenv').config()
 // const feedback = require("../database/models/feedback");
 const EMAIL=process.env.EMAIL;
-const PASS=process.env.PASS;
+const PASSWORD=process.env.PASS;
 module.exports = {
 
     // change name to createSubscriber
@@ -38,10 +38,7 @@ module.exports = {
             secure: true, // true for 465, false for other ports
             auth: {
               user: EMAIL, // generated ethereal user
-              pass: PASS, // generated ethereal password
-            },
-            tls:{
-              rejectUnauthorized:false
+              pass: PASSWORD, // generated ethereal password
             }
           });
         
