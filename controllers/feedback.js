@@ -61,23 +61,12 @@ module.exports = {
           let info = await transporter.sendMail({
             from: '"Divanshu Zinta" <divansh271@gmail.com>', // sender address
             to: req.body.email,
-            bcc:null,
             subject: "Thanking Mail for visting my website", // Subject line
             text: "hello?", // plain text body
             html: data, // html body
           });
-          transporter.sendMail(info, (error, info)=>{
-            if (error){
-              return console.log(error)
-            }
-
-
             console.log("Message sent: %s", info.messageId);
-            console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-          })
-
-
-
+            console.log("Preview URL: %s", nodeMailer.getTestMessageUrl(info));
           return res.status(200).json(response);
         }else{
             res.status(400).send('Please enter correct email')

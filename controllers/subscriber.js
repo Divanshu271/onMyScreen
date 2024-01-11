@@ -38,7 +38,7 @@ module.exports = {
           let data = `<html>
           <body>
           <p>Hello ${req.body.firstName} ${req.body.lastName}</p>
-          <p>Thanks for Subscribing to our blogging website. Visit again to read our blogs</p><br><br>
+          <p>Thanks for Subscribing to our blogging website. Visit again to read our blogs</p>
           <p>Thanks for visiting our website.</p>
           <p>Visit Again :)</p>
           </body>
@@ -49,13 +49,13 @@ module.exports = {
           let info = await transporter.sendMail({
             from: '"Divanshu Zinta" <divansh271@gmail.com>',
             to: req.body.email,
-            subject: "Thanking Mail for visiting my website",
+            subject: "Thanking Mail for subscribing my website",
             text: "hello?",
             html: data,
           });
 
           console.log("Message sent: %s", info.messageId);
-          console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+          console.log("Preview URL: %s", nodeMailer.getTestMessageUrl(info));
 
           return res.status(200).json(response);
         } else {
