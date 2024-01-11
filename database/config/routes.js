@@ -4,7 +4,7 @@ const searchRouter = require('../../routes/search')
 const getOneRouter = require('../../routes/getOneBlog')
 const getAuthorRouter = require('../../routes/author')
 const tagsRouter = require('../../routes/tags')
-// const app = express();
+const subscriberRouter=require('../../routes/subscriber')
 
 module.exports = function(app){
 
@@ -15,8 +15,7 @@ module.exports = function(app){
   app.use('/blogs/getOne', getOneRouter);
   app.use('/blogs/about', getAuthorRouter);
   app.use('/blogs/tags', tagsRouter);
+  app.use('/subscriber',subscriberRouter)
   
-//   app.use('/services',serviceRouter)
-//   app.use('/interest',interestRouter)
-//   app.use('/group', groupRouter);
+
 }

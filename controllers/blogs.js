@@ -2,13 +2,8 @@
 const db = require("../database/models");
 const { response } = require("../routes/search");
 const author = require("./author");
-// let perPage=req.body.perPage;
-// let pageNo=req.body.pageNo;
-// perPage=parseInt(perPage);
-// pageNo=parseInt(pageNo);
 module.exports = {
 
-    // change name to getBlogs
   get: async(req, res) => {
 
     try {
@@ -27,7 +22,10 @@ module.exports = {
         });
 
         let totalBlogs = await db.blogs.findAll()
-        totalBlogs = totalBlogs.length
+        totalBlogs = totalBlogs.length;
+        const favMovieData=await db.favMovies.findAll();
+        const ratingsData=await db.rating.findAll();
+        const quoteData=await db.quote.findAll();
 
         let totalPages = []
 
@@ -38,6 +36,9 @@ module.exports = {
         if(bg){
           let response = {
             blogs: bg,
+            favMovieData,
+            ratingsData,
+            quoteData,
             totalPages: totalPages
           }
           res.send(response)
